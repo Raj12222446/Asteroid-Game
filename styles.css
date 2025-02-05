@@ -1,0 +1,107 @@
+body {
+    margin: 0;
+    overflow: hidden;
+    background: black;
+    color: white;
+    font-family: 'Arial', sans-serif;
+  }
+  
+  #game {
+    position: relative;
+    width: 100vw;
+    height: 100vh;
+    overflow: hidden;
+  }
+  
+  .starfield {
+    position: absolute;
+    width: 200%;
+    height: 200%;
+    background: radial-gradient(ellipse at bottom, #1c1c1c 0%, #000000 100%);
+    animation: parallax 20s linear infinite;
+  }
+  
+  @keyframes parallax {
+    0% { transform: translate(0, 0); }
+    100% { transform: translate(-50%, -50%); }
+  }
+  
+  #spaceship {
+    position: absolute;
+    width: 40px;
+    height: 40px;
+    background: #00ff00;
+    clip-path: polygon(50% 0%, 100% 100%, 0% 100%);
+    transform: translate(-50%, -50%);
+    transition: transform 0.1s;
+  }
+  
+  .propellant {
+    position: absolute;
+    width: 10px;
+    height: 20px;
+    background: rgb(253, 166, 5);
+    clip-path: polygon(50% 0%, 100% 100%, 0% 100%);
+    transform: translate(-50%, 100%);
+    opacity: 0;
+    transition: opacity 0.2s, height 0.2s;
+  }
+  
+  .asteroid {
+    position: absolute;
+    background: #dd0707;
+    border-radius: 50%;
+    transform: translate(-50%, -50%);
+    animation: rotate linear infinite;
+  }
+  
+  @keyframes rotate {
+    0% { transform: translate(-50%, -50%) rotate(0deg); }
+    100% { transform: translate(-50%, -50%) rotate(360deg); }
+  }
+  
+  .fragment {
+    position: absolute;
+    background: #8b4513;
+    border-radius: 50%;
+    transform: translate(-50%, -50%);
+  }
+  
+  .laser {
+    position: absolute;
+    width: 2px;
+    height: 20px;
+    background: red;
+    transform: translate(-50%, -50%);
+    animation: laserBeam 0.2s linear;
+  }
+  
+  @keyframes laserBeam {
+    0% { height: 0; }
+    100% { height: 20px; }
+  }
+  
+  #hud {
+    position: absolute;
+    top: 10px;
+    left: 10px;
+    font-size: 20px;
+  }
+  
+  #game-over {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    text-align: center;
+    display: none;
+  }
+  
+  #restart {
+    background: #00ff00;
+    color: black;
+    border: none;
+    padding: 10px 20px;
+    font-size: 20px;
+    cursor: pointer;
+  }
